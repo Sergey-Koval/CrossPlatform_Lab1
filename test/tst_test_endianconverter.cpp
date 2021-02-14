@@ -1,9 +1,6 @@
 #include <QtTest>
 
-
 #include <../endianconverter.cpp>
-
-// add necessary includes here
 
 class Test_EndianConverter : public QObject
 {
@@ -17,7 +14,7 @@ private:
 private slots:
     void test_case1();
     void test_case2();
-
+    void test_case3();
 };
 
 Test_EndianConverter::Test_EndianConverter()
@@ -38,6 +35,11 @@ void Test_EndianConverter::test_case1()
 void Test_EndianConverter::test_case2(){
 
     QVERIFY(conv->ChangeEndiannes(conv->ChangeEndiannes(1)) == 1);
+}
+
+void Test_EndianConverter::test_case3(){
+    QVERIFY(conv->toHex(conv->ChangeEndiannes(100)) == QString("64 0 0 0"));
+    QVERIFY(conv->toHex(conv->ChangeEndiannes(-100)) == QString("9C FF FF FF"));
 }
 
 QTEST_APPLESS_MAIN(Test_EndianConverter)
