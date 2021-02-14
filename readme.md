@@ -9,4 +9,4 @@
 
 Сравнение с __builtin_bswap32() с g++
 
-![3](Screenshots/comparison.png)
+![3](Screenshots/comparison.PNG)
